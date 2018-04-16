@@ -1,0 +1,27 @@
+#!/bin/bash -l
+#SBATCH --account=pr04
+#SBATCH --nodes=1
+#SBATCH --partition=xfer
+#SBATCH --time=4:00:00
+#SBATCH --output=transfer_cclm.out
+#SBATCH --error=transfer_cclm.err
+#SBATCH --job-name="transfer"
+
+# ***** get time
+startyear=${1}
+
+experiment=RUN_CCLM5.0_6_ERAI_EUR-44
+
+scenario=evaluation
+experiment_id=ECMWF-ERAINT_${scenario}_CLMcom-CCLM5-0-6
+
+ORIGIN=${SCRATCH}/tmp/${experiment}/${scenario}
+TARGET=${PROJECT}/${experiment}
+
+
+if [ ! -d ${TARGET} ]
+then
+  mkdir -p ${TARGET}
+fi
+rsync -auv ${ORIGIN}/${experiment_id}_${startyear}.tar ${TARGET}/.
+
