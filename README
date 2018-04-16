@@ -1,0 +1,8 @@
+Silje Lund Soerland, Zürich April 16th, 2018.
+
+Scripts to tar and archive cclm-simulations. 
+To run:
+
+sbatch archive_cosmo_runs.bash "startyear" "endyear"
+
+
