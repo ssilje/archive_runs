@@ -6,3 +6,4 @@ To run:
 sbatch archive_cosmo_runs.bash "startyear" "endyear"
 
 
+sbatch archive_int2lm_files.bash "startyear" "endyear"
