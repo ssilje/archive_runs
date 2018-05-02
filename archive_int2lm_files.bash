@@ -37,10 +37,10 @@ cd ${datadir}
 tar -cvf $storedir/year$startyear/laf${startyear}.tar ${startyear}
 
 
-if [ ${NEXTYEAR} -le ${endyear} ]
+if [ ${startyear} -le ${endyear} ]
 then
     cd $scriptdir
-    sbatch transfer_laf  ${startyear} ${endyear}
+    sbatch transfer_laf  ${startyear} 
     
     if [ -e ${storedir}/year$startyear/laf${startyear}.tar ]
     then

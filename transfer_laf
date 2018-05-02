@@ -12,9 +12,6 @@ startyear=${1}
 
 
 
-
-
-
 ORIGIN=/scratch/snx3000/ssilje/tmp_int2lm
 TARGET=/project/pr04/CORDEX-driving-data/EUR-44/ERA-Interim_aerocom
 
