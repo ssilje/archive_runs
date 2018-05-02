@@ -1,0 +1,32 @@
+#!/bin/bash -l
+#SBATCH --account=pr04
+#SBATCH --nodes=1
+#SBATCH --partition=xfer
+#SBATCH --time=4:00:00
+#SBATCH --output=transfer_int2lm.out
+#SBATCH --error=transfer_int2lm.err
+#SBATCH --job-name="transfer"
+
+# ***** get time
+startyear=${1}
+
+
+
+
+
+
+ORIGIN=/scratch/snx3000/ssilje/tmp_int2lm
+TARGET=/project/pr04/CORDEX-driving-data/EUR-44/ERA-Interim_aerocom
+
+
+if [ ! -d ${TARGET} ]
+then
+  mkdir -p ${TARGET}
+fi
+
+if [ ! -d ${TARGET}/year${startyear} ]
+then
+  mkdir -p ${TARGET}/year${startyear}
+fi
+rsync -auv ${ORIGIN}/year${startyear}/laf${startyear}.tar ${TARGET}/year${startyear}/.
+
